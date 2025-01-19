@@ -1,0 +1,21 @@
+{
+  "name": "ddd-entity-creator",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "LeonFilipov",
+  "type": "module",
+  "main": "./src/create-entity.js",
+  "scripts": {
+    "start": "node ./src/create-entity.js"
+  },
+  "bin": {
+    "create-entity": "./src/create-entity.js"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "fs-extra": "^11.3.0",
+    "mustache": "^4.2.0"
+  },
+  "keywords": ["cli", "Domain Driven Design", "tool"]
+}
