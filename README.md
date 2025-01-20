@@ -72,8 +72,10 @@ This will generate a directory structure as follow:
   │       ├── schemas/
   │           ├── entityName-schema.ts
 ```
-### Next improvements
+### Fixes
 - [ ] **Fix camelCase attributes**
+- [ ] **Fix imports**
+### Next improvements
 - [ ] **Template generation:** Command to generate `.json` template for new entities
 - [ ] **Repository generation:** Automatically generate repositories for MongoDB.
 - [ ] **Advanced documentation:** Provide more detailed examples, edge cases, and test cases.
