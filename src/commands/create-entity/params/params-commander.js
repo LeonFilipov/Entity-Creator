@@ -1,3 +1,5 @@
+import { entityJsonParser } from "../../../utils/entity-json-parser.js";
+
 export const getCommanderParams = (program) => {
     const entity_json_path = program.opts().file;
     

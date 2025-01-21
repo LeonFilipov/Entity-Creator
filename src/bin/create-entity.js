@@ -4,8 +4,6 @@ import { getCommanderParams } from "../commands/create-entity/params/params-comm
 import { executeEntityGenerator } from "../commands/create-entity/index.js"
 
 const getCommanderProgram = () => {
-    const program = new Command();
-
     program
         .name("entity-generator")
         .version("1.0.0")
