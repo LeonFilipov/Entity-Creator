@@ -5,17 +5,23 @@
   "license": "ISC",
   "author": "LeonFilipov",
   "type": "module",
-  "main": "./src/create-entity.js",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "node ./src/create-entity.js"
+    "start": "node ./src/index.js"
   },
   "bin": {
-    "create-entity": "./src/create-entity.js"
+    "create-entity": "./src/bin/create-entity.js",
+    "create-template": "./src/bin/create-template.js"    
   },
   "dependencies": {
+    "@inquirer/prompts": "^7.2.3",
     "commander": "^13.0.0",
     "fs-extra": "^11.3.0",
     "mustache": "^4.2.0"
   },
-  "keywords": ["cli", "Domain Driven Design", "tool"]
+  "keywords": [
+    "cli",
+    "Domain Driven Design",
+    "tool"
+  ]
 }
