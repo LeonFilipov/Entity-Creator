@@ -3,8 +3,6 @@ import fs from 'fs';
 
 export const askForEntityJson = async () => {
     const entity_json_path = await input({
-        type: 'text',
-        name: 'entity-json',
         message: 'Please provide entity json:',
         default: './entity.json',
         validate: async (input) => {
@@ -19,8 +17,6 @@ export const askForEntityJson = async () => {
 
 export const askForOutputPath = async () => {
     const output_path = await input({
-        type: 'text',
-        name: 'output-path',
         message: 'Please provide output path:',
         default: './app/contexts/morpheus/',
     });

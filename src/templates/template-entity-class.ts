@@ -1,7 +1,6 @@
 export const ENTITY_CLASS_TEMPLATE = `
 export class {{className}} {
   constructor(
-    public readonly _id: {{className}}Id,
     {{#attributes}}
     public readonly {{attributeName}}: {{attributeType}},
     {{/attributes}}

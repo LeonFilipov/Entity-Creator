@@ -8,15 +8,11 @@ import { entityJsonParser } from "../../../utils/entity-json-parser.js";
  */
 export const getInquirerParams = async () => {
     const entity_json_path = await input({
-        type: 'text',
-        name: 'entity-json',
         message: 'Please provide entity json:',
         default: './entity.json',
     });
 
     const output_path = await input({
-        type: 'text',
-        name: 'output-path',
         message: 'Please provide output path:',
         default: './app/contexts/morpheus/',
     });

@@ -1,6 +1,7 @@
 import { askForEntityJson, askForOutputPath } from './prompts.js';
 import { entityJsonParser } from '../../utils/entity-json-parser.js';
 import { executeEntityGenerator } from '../../commands/create-entity/index.js';
+import { solveImports } from '../../utils/imports.js';
 
 export const createEntityMain = async () => {
     const entity_json_path = await askForEntityJson();
@@ -10,4 +11,6 @@ export const createEntityMain = async () => {
     const entity_json = entityJsonParser(entity_json_path);
 
     executeEntityGenerator(entity_json, output_path);
+
+    solveImports();
 }

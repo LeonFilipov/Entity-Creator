@@ -4,12 +4,22 @@ import Mustache from 'mustache';
 
 export const generateEntity = (entityName, attributes, path) => {
     const className = entityName.charAt(0).toUpperCase() + entityName.slice(1);
-    const attributesArray = attributes.map(attribute => ({
-      attributeName: attribute.name,
-      primitiveName: attribute.name,
-      attributeType: `${className}${attribute.name.charAt(0).toUpperCase() + attribute.name.slice(1)}`,
-    }));
+    
+    const attributesArray = [{
+      attributeName: '_id',
+      primitiveName: '_id',
+      attributeType: `${className}Id`,
+    }];
+
+    attributes.forEach(attribute => {
+      attributesArray.push({
+        attributeName: attribute.name,
+        primitiveName: attribute.name,
+        attributeType: `${className}${attribute.name.charAt(0).toUpperCase() + attribute.name.slice(1)}`,
+      })
+    });
   
+
     const rendered = Mustache.render(ENTITY_CLASS_TEMPLATE, {
       className,
       attributes: attributesArray,

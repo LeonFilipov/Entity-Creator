@@ -4,17 +4,21 @@ import { ENTITY_VALUE_OBJECT_TEMPLATE } from '../templates/template-entity-value
 
 export const generateEntityValueObjects = (entityName, attributes, path) => {
     const className = entityName.charAt(0).toUpperCase() + entityName.slice(1);
-    const typesArray = attributes.map(attribute => ({
-        attributeName: attribute.name.charAt(0).toUpperCase() + attribute.name.slice(1),
-        primitiveName: attribute.name,
-        type: attribute.type.charAt(0).toUpperCase() + attribute.type.slice(1),
-    }));
-
-    typesArray.push({
+    
+    const typesArray = [{
         attributeName: 'Id',
         primitiveName: '_id',
         type: 'String',
+    }]
+
+    attributes.forEach(attribute => {
+        typesArray.push({
+            attributeName: attribute.name.charAt(0).toUpperCase() + attribute.name.slice(1),
+            primitiveName: attribute.name,
+            type: attribute.type.charAt(0).toUpperCase() + attribute.type.slice(1),
+        })
     });
+
     
     typesArray.forEach(({ attributeName, primitiveName, type }) => {
         const rendered = Mustache.render(ENTITY_VALUE_OBJECT_TEMPLATE, {
