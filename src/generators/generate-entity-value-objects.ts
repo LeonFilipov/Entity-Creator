@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import Mustache from 'mustache';
-import { ENTITY_VALUE_OBJECT_TEMPLATE } from '../templates/template-entity-value-object.js';
+import { ENTITY_VALUE_OBJECT_TEMPLATE } from '../templates/template-entity-value-object';
+import { parsePrimitiveName } from '../utils/parse-primitive-name';
 
 export const generateEntityValueObjects = (entityName, attributes, path) => {
     const className = entityName.charAt(0).toUpperCase() + entityName.slice(1);
@@ -28,7 +29,7 @@ export const generateEntityValueObjects = (entityName, attributes, path) => {
         });
         
         if (primitiveName[0] === '_') primitiveName = primitiveName.slice(1);
-
+        primitiveName = parsePrimitiveName(primitiveName);
         const fileName = `${entityName}-${primitiveName}.ts`;
         
         fs.outputFileSync(`${path}/domain/value-objects/${fileName}`, rendered);

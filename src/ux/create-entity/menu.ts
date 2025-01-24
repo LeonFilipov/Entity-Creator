@@ -11,6 +11,6 @@ export const createEntityMain = async () => {
     const entity_json = entityJsonParser(entity_json_path);
 
     executeEntityGenerator(entity_json, output_path);
-
+    
     solveImports();
 }
