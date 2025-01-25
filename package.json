@@ -17,6 +17,7 @@
     "@inquirer/prompts": "^7.2.3",
     "commander": "^13.0.0",
     "fs-extra": "^11.3.0",
+    "mongoose": "^8.9.5",
     "mustache": "^4.2.0",
     "nodemon": "^3.1.9",
     "ts-morph": "^25.0.0",
