@@ -1,9 +1,13 @@
-import { readFileSync, write, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
+
+type Property<T> = {
+    type: T;
+    [key: string]: any;
+}
 
 type Attribute<T> = {
     name: string;
-    type: T;
-    [key: string]: any;
+    properties: Property<T>;
 }
 
 export class Template {
@@ -11,7 +15,9 @@ export class Template {
         public readonly name: string,
         public readonly collection: string,
         public readonly attributes: Array<Attribute<any>>,
-    ) {}
+    ) {
+        attributes.forEach(this.validateAttribute);
+    }
 
     static fromFile(fileName): Template{
         const file = readFileSync(`${fileName}.json`, 'utf-8');
@@ -23,10 +29,27 @@ export class Template {
         fileName: string,
         name: string,
         collection: string,
-        attributes: Array<any>,
+        attributes: Array<Attribute<any>>,
     ): void {
         const template = new Template(name, collection, attributes);
         const file = JSON.stringify({ entity: template}, null, 2);
         writeFileSync(`./${fileName}.json`, file, 'utf-8');
+    }
+
+    private validateAttribute(attribute: Attribute<any>): void {
+        if (!attribute.name) {
+            console.log("❌ Attribute name is required");
+            process.exit(1);
+        }
+
+        if (!attribute.properties) {
+            console.log("❌ Attribute properties are required");
+            process.exit(1);
+        }
+
+        if (!attribute.properties.type) {
+            console.log("❌ Attribute type is required");
+            process.exit(1);
+        }
     }
 }

@@ -5,7 +5,7 @@ import { ENTITY_SCHEMA } from '../templates/template-entity-schema.js';
 export const generateEntitySchema = (entityName, collection, attributes, output) => {
     const className = entityName.charAt(0).toUpperCase() + entityName.slice(1);
     const attributeArray = attributes.map((attribute) => {
-        const { name, ...properties } = attribute;
+        const { name, properties } = attribute;
 
         return {
             primitiveName: name,

@@ -16,7 +16,7 @@ export const generateEntityValueObjects = (entityName, attributes, path) => {
         typesArray.push({
             attributeName: attribute.name.charAt(0).toUpperCase() + attribute.name.slice(1),
             primitiveName: attribute.name,
-            type: attribute.type.charAt(0).toUpperCase() + attribute.type.slice(1),
+            type: attribute.properties.type.charAt(0).toUpperCase() + attribute.properties.type.slice(1),
         })
     });
 

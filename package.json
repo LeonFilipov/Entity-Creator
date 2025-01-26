@@ -9,10 +9,6 @@
   "scripts": {
     "start": "tsx ./src/index.ts"
   },
-  "bin": {
-    "create-entity": "./src/bin/create-entity.ts",
-    "create-template": "./src/bin/create-template.ts"
-  },
   "dependencies": {
     "@inquirer/prompts": "^7.2.3",
     "commander": "^13.0.0",

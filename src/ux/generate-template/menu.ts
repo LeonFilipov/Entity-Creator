@@ -1,5 +1,5 @@
 import { Template } from "../../class/template";
-import { TEMPLATE_ATTRIBUTES } from "../../utils/get-template-attributes";
+import { TEMPLATE_ATTRIBUTES } from "../../utils/template_atributes";
 import { askForTemplateData } from "./prompts";
 
 export const generateTemplate = async () => {
